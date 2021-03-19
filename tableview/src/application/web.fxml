@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="557.0" prefWidth="650.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.webController">
+   <children>
+      <TableView fx:id="tabview" layoutX="270.0" layoutY="2.0" onMouseClicked="#row_selected" prefHeight="796.0" prefWidth="503.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="270.0" AnchorPane.rightAnchor="-123.0" AnchorPane.topAnchor="2.0">
+        <columns>
+          <TableColumn fx:id="colID" prefWidth="38.0" text="ID" />
+          <TableColumn fx:id="colfname" minWidth="0.0" prefWidth="112.0" text="first_name" />
+            <TableColumn fx:id="collast" maxWidth="248.0" prefWidth="100.0" text="last_name" />
+            <TableColumn fx:id="coladdress" minWidth="9.0" prefWidth="200.0" text="adress" />
+        </columns>
+      </TableView>
+      <Pane fx:id="pane" layoutY="200.0" prefHeight="598.0" prefWidth="275.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="375.0">
+         <children>
+            <Text layoutX="-9.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" textAlignment="RIGHT" wrappingWidth="52.787109375" />
+            <TextField fx:id="txtID" layoutX="107.0" layoutY="76.0" prefHeight="25.0" prefWidth="133.0" />
+            <Text layoutX="-13.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="first name" textAlignment="RIGHT" wrappingWidth="83.787109375" />
+            <Text layoutX="23.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="last name" wrappingWidth="69.96484375" />
+            <Text layoutX="23.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adress" wrappingWidth="69.96484375" />
+            <TextField fx:id="txtlname" layoutX="107.0" layoutY="178.0" prefHeight="25.0" prefWidth="133.0" />
+            <TextField fx:id="txtadr" layoutX="107.0" layoutY="228.0" prefHeight="25.0" prefWidth="133.0" />
+            <TextField fx:id="txtfname" layoutX="107.0" layoutY="126.0" prefHeight="25.0" prefWidth="133.0" />
+            <Button layoutX="18.0" layoutY="264.0" mnemonicParsing="false" onAction="#create" prefHeight="47.0" prefWidth="245.0" text="create" />
+            <Button layoutX="18.0" layoutY="322.0" mnemonicParsing="false" onAction="#edit" prefHeight="47.0" prefWidth="245.0" text="edit" />
+            <Button layoutX="17.0" layoutY="381.0" mnemonicParsing="false" onAction="#delete" prefHeight="47.0" prefWidth="245.0" text="delete" />
+            <Label layoutX="11.0" layoutY="23.0" prefHeight="36.0" prefWidth="245.0" text="    CRUD AREA" textAlignment="CENTER">
+               <font>
+                  <Font name="Baskerville Old Face" size="30.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtsearch" layoutX="4.0" layoutY="523.0" prefHeight="36.0" prefWidth="268.0" promptText="search for data here" />
+            <Button layoutX="5.0" layoutY="560.0" mnemonicParsing="false" onAction="#search" prefHeight="26.0" prefWidth="268.0" text="search" />
+            <Label layoutX="15.0" layoutY="477.0" prefHeight="36.0" prefWidth="245.0" text="  SEARCH AREA" textAlignment="CENTER">
+               <font>
+                  <Font name="Baskerville Old Face" size="30.0" />
+               </font>
+            </Label>
+            <Line endX="254.0" layoutX="14.0" layoutY="456.0" startX="-14.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -5,17 +5,22 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.animation.TranslateTransition;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Line;
 import javafx.util.Duration;
 
 public class webController implements Initializable{
@@ -45,7 +50,11 @@ public class webController implements Initializable{
 
     @FXML
     private TextField txtadr;
-    
+
+    @FXML
+    private Label datalabel;
+    @FXML
+    private Line line;
     @FXML
     private TextField txtfname;
     @FXML
@@ -157,9 +166,33 @@ switch(index) {
     }
 
     @FXML
-    void search(ActionEvent event) {
-    	
+    void search(KeyEvent event) {
+     txtsearch.textProperty().addListener(new InvalidationListener() {
 
+		@Override
+		public void invalidated(Observable arg0) {
+			if(txtsearch.getText().isEmpty()) {
+				tabview.getItems().removeAll();
+				tabview.setItems(list);
+			}
+		 ObservableList<Data> list_search = FXCollections.observableArrayList();
+		 ObservableList<TableColumn<Data,?>> column = tabview.getColumns(); 
+		  for(int row =0, col;row<list.size();row++) {
+		     for(col =0;col<column.size();col++) {
+		     TableColumn colvar=column.get(col);
+		     String cell= colvar.getCellData(list.get(row)).toString();
+		    if( cell.contains(txtsearch.getText())  && cell.startsWith(txtsearch.getText())) { 		  
+		    	list_search.add(list.get(row));	  
+		    	tabview.setItems(list_search);
+		    	break;
+		    }
+		    	  }
+		      }
+		}
+    	 
+     });
+     
+      
     }
     ObservableList<Data> list = FXCollections.observableArrayList(
 			  new Data(1,"yassin","jama","xxxx@xx"),
@@ -177,9 +210,16 @@ switch(index) {
    collast.setCellValueFactory(new PropertyValueFactory<Data,String>("last_name"));
    coladdress.setCellValueFactory(new PropertyValueFactory<Data,String>("adress"));
    tabview.setItems(list);
-   TranslateTransition t = new TranslateTransition (Duration.seconds(5.5),pane);
+   TranslateTransition t = new TranslateTransition (Duration.seconds(6),pane);
    
    t.setToY(pane.getLayoutY()-400);
+   
+   TranslateTransition tlabel = new TranslateTransition (Duration.seconds(6),datalabel);
+   TranslateTransition tline = new TranslateTransition (Duration.seconds(6),line);
+   tline.setToX(line.getLayoutX()+190);
+   tlabel.setToX(datalabel.getLayoutX()+350);
+   tline.play();
+   tlabel.play();
    t.play();
 	}
 

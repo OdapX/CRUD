@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="557.0" prefWidth="650.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.webController">
    <children>
-      <TableView fx:id="tabview" layoutX="270.0" layoutY="2.0" onMouseClicked="#row_selected" prefHeight="796.0" prefWidth="503.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="270.0" AnchorPane.rightAnchor="-123.0" AnchorPane.topAnchor="2.0">
+      <TableView fx:id="tabview" layoutX="259.0" layoutY="89.0" onMouseClicked="#row_selected" prefHeight="709.0" prefWidth="456.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="266.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="89.0">
         <columns>
           <TableColumn fx:id="colID" prefWidth="38.0" text="ID" />
           <TableColumn fx:id="colfname" minWidth="0.0" prefWidth="112.0" text="first_name" />
@@ -31,7 +31,7 @@
             <TextField fx:id="txtlname" layoutX="107.0" layoutY="178.0" prefHeight="25.0" prefWidth="133.0" />
             <TextField fx:id="txtadr" layoutX="107.0" layoutY="228.0" prefHeight="25.0" prefWidth="133.0" />
             <TextField fx:id="txtfname" layoutX="107.0" layoutY="126.0" prefHeight="25.0" prefWidth="133.0" />
-            <Button layoutX="18.0" layoutY="264.0" mnemonicParsing="false" onAction="#create" prefHeight="47.0" prefWidth="245.0" text="create" />
+            <Button layoutX="18.0" layoutY="264.0" mnemonicParsing="false" onAction="#create" prefHeight="47.0" prefWidth="245.0" styleClass="Button" text="create" />
             <Button layoutX="18.0" layoutY="322.0" mnemonicParsing="false" onAction="#edit" prefHeight="47.0" prefWidth="245.0" text="edit" />
             <Button layoutX="17.0" layoutY="381.0" mnemonicParsing="false" onAction="#delete" prefHeight="47.0" prefWidth="245.0" text="delete" />
             <Label layoutX="11.0" layoutY="23.0" prefHeight="36.0" prefWidth="245.0" text="    CRUD AREA" textAlignment="CENTER">
@@ -39,8 +39,7 @@
                   <Font name="Baskerville Old Face" size="30.0" />
                </font>
             </Label>
-            <TextField fx:id="txtsearch" layoutX="4.0" layoutY="523.0" prefHeight="36.0" prefWidth="268.0" promptText="search for data here" />
-            <Button layoutX="5.0" layoutY="560.0" mnemonicParsing="false" onAction="#search" prefHeight="26.0" prefWidth="268.0" text="search" />
+            <TextField fx:id="txtsearch" layoutX="4.0" layoutY="523.0" onKeyPressed="#search" prefHeight="36.0" prefWidth="251.0" promptText="search for data here" />
             <Label layoutX="15.0" layoutY="477.0" prefHeight="36.0" prefWidth="245.0" text="  SEARCH AREA" textAlignment="CENTER">
                <font>
                   <Font name="Baskerville Old Face" size="30.0" />
@@ -49,5 +48,11 @@
             <Line endX="254.0" layoutX="14.0" layoutY="456.0" startX="-14.0" />
          </children>
       </Pane>
+      <Label fx:id="datalabel" layoutX="-2.0" layoutY="-11.0" prefHeight="94.0" prefWidth="336.0" text="DATA  " textAlignment="CENTER" textFill="#9aff08">
+         <font>
+            <Font name="Leelawadee UI" size="68.0" />
+         </font>
+      </Label>
+      <Line fx:id="line" endX="107.0" layoutX="130.0" layoutY="74.0" startX="-132.0" />
    </children>
 </AnchorPane>
